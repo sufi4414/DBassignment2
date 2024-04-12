@@ -7,9 +7,11 @@ from pyspark import SparkContext, SparkConf
 # don't change this line
 hdfs_nn = sys.argv[1]
 
+input_path = "hdfs://%s:9000/assignment2/part1/input/" % (hdfs_nn)
+output_path = "hdfs://%s:9000/assignment2/output/question1/" % (hdfs_nn)
 spark = SparkSession.builder.appName("Assigment 2 Question 1").getOrCreate()
 # YOUR CODE GOES BELOW
-def cleanup_csv(input_path):
+def cleanup_csv(input_path,ouput_path):
   try:
     conf = SparkConf().setAppName("Part 1 Question 1")
     sc = SparkContext(conf=conf)
@@ -27,10 +29,10 @@ def cleanup_csv(input_path):
           (df['Reviews'].isNotNull())
       )
     print(f"Filtered DataFrame count: {df_filtered.count()}")
-    df_filtered.show()
-
+    # df_filtered.show()
+    df.write.csv(output_path, header=True)
   finally:
     sc.stop()
 
-cleanup_csv(input_path)
+cleanup_csv(input_path,output_path)
 
