@@ -1,6 +1,6 @@
 The Files inside student_files folder are compatible to run in google collab.<br>
 The Files outside (q1.py to q2.py ) are compatible to run in hadoop.<br>
-Untitled0.ipynb file is the one to run in collab.<br><br>
+HW2_GoogleCollab.ipynb file is the one to run in collab.<br><br>
 
 Localhost private ip: 172.31.89.26<br>
 Localhost public ip (incase you want to SSH): 44.201.136.19<br>
