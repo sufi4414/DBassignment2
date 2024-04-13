@@ -39,6 +39,7 @@ def average_rating(input_path,output_path):
         .limit(3)
 
     )
+    top3_df = top3_df.limit(3).withColumn("RatingGroup", F.lit("Top"))
     # top3_df.show()
 
     bot3_df = (
@@ -47,6 +48,7 @@ def average_rating(input_path,output_path):
         .limit(3)
 
     )
+    bot3_df = bot3_df.limit(3).withColumn("RatingGroup", F.lit("Bottom"))
     # bot3_df.show()
 
     union_df = top3_df.union(bot3_df)
